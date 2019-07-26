@@ -2,15 +2,19 @@
 
 var mongoose = require('mongoose');
 var app = require('./app');
-const PORT = 5000;
-const DB = 'mongodb://127.0.0.1/todoreact';
+
+require('dotenv').config({ path: 'variables.env' })
+
+const PORT = process.env.PORT || 5000;
+const HOST = process.env.HOST || '0.0.0.0';
+const DB = process.env.DB_URL;
 
 mongoose.Promise = global.Promise;
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
 mongoose.connect(DB, { useNewUrlParser: true })
   .then(() => {
-    app.listen(PORT, () => {
+    app.listen(PORT, HOST, () => {
       console.log(`Server is running on PORT: ${PORT}`);
     });
   })
