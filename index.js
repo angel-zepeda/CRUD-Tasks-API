@@ -15,7 +15,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.connect(DB, { useNewUrlParser: true })
   .then(() => {
     console.log("DB connected", DB)
-    app.listen(PORT, HOST, () => {
+    app.listen(PORT, () => {
       console.log(`Server is running on PORT: ${PORT}`);
     });
   })
