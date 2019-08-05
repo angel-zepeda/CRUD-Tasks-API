@@ -5,7 +5,7 @@ var tasksController = require('../controllers/tasks');
 var route = express.Router();
 
 route.get('/tasks', tasksController.index);
-route.post('/task/create', tasksController.create);
+route.post('/task', tasksController.create);
 route.delete('/task/delete/:id', tasksController.deleteTask);
 route.get('/task/:id', tasksController.show);
 route.put('/task/update/:id', tasksController.update);
