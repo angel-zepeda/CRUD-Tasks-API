@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use('/api', taksRoutes);
+app.use('/api/v1', [taksRoutes]);
 
 
 module.exports = app;
